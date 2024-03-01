@@ -1,0 +1,142 @@
+{
+    "additional-repositories": [
+        "multilib"
+    ],
+    "archinstall-language": "English",
+    "audio_config": {
+        "audio": "pipewire"
+    },
+    "bootloader": "Systemd-boot",
+    "config_version": "2.7.1",
+    "debug": false,
+    "disk_config": {
+        "config_type": "default_layout",
+        "device_modifications": [
+            {
+                "device": "/dev/sda",
+                "partitions": [
+                    {
+                        "btrfs": [],
+                        "dev_path": null,
+                        "flags": [
+                            "Boot",
+                            "ESP"
+                        ],
+                        "fs_type": "fat32",
+                        "mount_options": [],
+                        "mountpoint": "/boot",
+                        "obj_id": "e8dc2aee-2ca6-4426-bbd9-e7537363432b",
+                        "size": {
+                            "sector_size": {
+                                "unit": "B",
+                                "value": 512
+                            },
+                            "unit": "MiB",
+                            "value": 512
+                        },
+                        "start": {
+                            "sector_size": {
+                                "unit": "B",
+                                "value": 512
+                            },
+                            "unit": "MiB",
+                            "value": 1
+                        },
+                        "status": "create",
+                        "type": "primary"
+                    },
+                    {
+                        "btrfs": [],
+                        "dev_path": null,
+                        "flags": [],
+                        "fs_type": "ext4",
+                        "mount_options": [],
+                        "mountpoint": "/",
+                        "obj_id": "300e49f2-f8eb-401b-8371-2d166e7dee0a",
+                        "size": {
+                            "sector_size": {
+                                "unit": "B",
+                                "value": 512
+                            },
+                            "unit": "B",
+                            "value": 999665917952
+                        },
+                        "start": {
+                            "sector_size": {
+                                "unit": "B",
+                                "value": 512
+                            },
+                            "unit": "B",
+                            "value": 537919488
+                        },
+                        "status": "create",
+                        "type": "primary"
+                    }
+                ],
+                "wipe": true
+            }
+        ]
+    },
+    "hostname": "arya",
+    "kernels": [
+        "linux"
+    ],
+    "locale_config": {
+        "kb_layout": "sv-latin1",
+        "sys_enc": "UTF-8",
+        "sys_lang": "en_US"
+    },
+    "mirror_config": {
+        "custom_mirrors": [],
+        "mirror_regions": {
+            "Sweden": [
+                "https://mirror.osbeck.com/archlinux/$repo/os/$arch",
+                "https://mirror.bahnhof.net/pub/archlinux/$repo/os/$arch",
+                "https://ftp.myrveln.se/pub/linux/archlinux/$repo/os/$arch",
+                "https://ftp.lysator.liu.se/pub/archlinux/$repo/os/$arch",
+                "https://ftp.acc.umu.se/mirror/archlinux/$repo/os/$arch",
+                "http://mirror.bahnhof.net/pub/archlinux/$repo/os/$arch",
+                "http://ftpmirror.infania.net/mirror/archlinux/$repo/os/$arch",
+                "http://ftp.myrveln.se/pub/linux/archlinux/$repo/os/$arch",
+                "http://ftp.lysator.liu.se/pub/archlinux/$repo/os/$arch",
+                "http://ftp.acc.umu.se/mirror/archlinux/$repo/os/$arch"
+            ]
+        }
+    },
+    "network_config": {
+        "type": "iso"
+    },
+    "no_pkg_lookups": false,
+    "ntp": true,
+    "offline": false,
+    "packages": [
+        "git",
+        "curl",
+        "wireplumber",
+        "pipewire-pulse",
+        "xorg-xwayland",
+        "wlroots",
+        "polkit",
+        "sway",
+        "swaybg",
+        "swayidle",
+        "grim",
+        "slurp",
+        "alacritty",
+        "waybar",
+        "wofi",
+        "ttf-nerd-fonts-symbols",
+        "ttf-hack-nerd",
+        "lsof",
+    ],
+    "parallel downloads": 0,
+    "profile_config": null,
+    "script": "guided",
+    "silent": false,
+    "skip_ntp": false,
+    "skip_version_check": false,
+    "swap": true,
+    "timezone": "Europe/Stockholm",
+    "uki": false,
+    "version": "2.7.1"
+}
