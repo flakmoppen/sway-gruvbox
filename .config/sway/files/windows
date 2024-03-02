@@ -1,12 +1,14 @@
-### Window styles and decorations.
+### Window styles and decorations and behavior.
 
-gaps inner 4
-gaps outer 0
-
+# Spaces
+gaps {
+    inner 4
+    outer 0
+}
 default_border pixel 2
 default_floating_border pixel 2
 
-# Window borders
+# Colors
 set {
     $color-high         #d65d0e
     $color-medium       #d79921
@@ -15,10 +17,17 @@ set {
     $color-text         #bdae93
     $color-alert        #cc241d
 }
-
-# WINDOW CLASS                  BORDER          BACKGROUND      TEXT            INDICATOR       CHILD BORDER
+#      CLASS                    BORDER          BACKGROUND      TEXT            INDICATOR       CHILD BORDER
 client.focused                  $color-high     $color-back     $color-text     $color-low      $color-high
 client.focused_inactive         $color-medium   $color-back     $color-text     $color-low      $color-medium
 client.focused_tab_title        $color-high     $color-back     $color-text
 client.unfocused                $color-low      $color-back     $color-text     $color-low      $color-low
 client.urgent                   $color-alert    $color-back     $color-text     $color-medium   $color-alert
+
+# Behavior
+for_window [class=".*"] {
+        inhibit_idle fullscreen
+        opacity set 0.8
+}
+#for_window [app_id=".*"] ...
+
