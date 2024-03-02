@@ -1,0 +1,24 @@
+### Window styles and decorations.
+
+gaps inner 4
+gaps outer 0
+
+default_border pixel 2
+default_floating_border pixel 2
+
+# Window borders
+set {
+    $color-high         #d65d0e
+    $color-medium       #d79921
+    $color-low          #d5c4a1
+    $color-back         #3c3836
+    $color-text         #bdae93
+    $color-alert        #cc241d
+}
+
+# WINDOW CLASS                  BORDER          BACKGROUND      TEXT            INDICATOR       CHILD BORDER
+client.focused                  $color-high     $color-back     $color-text     $color-low      $color-high
+client.focused_inactive         $color-medium   $color-back     $color-text     $color-low      $color-medium
+client.focused_tab_title        $color-high     $color-back     $color-text
+client.unfocused                $color-low      $color-back     $color-text     $color-low      $color-low
+client.urgent                   $color-alert    $color-back     $color-text     $color-medium   $color-alert
