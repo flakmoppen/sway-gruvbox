@@ -127,7 +127,6 @@
         "wofi",
         "ttf-nerd-fonts-symbols",
         "ttf-hack-nerd",
-        "lsof",
     ],
     "parallel downloads": 0,
     "profile_config": null,

@@ -22,7 +22,6 @@ PACKAGES=(
         "wofi",
         "ttf-nerd-fonts-symbols",
         "ttf-hack-nerd",
-        "lsof",
 )
 
 for PACKAGE in "${PACKAGES[@]}"; do

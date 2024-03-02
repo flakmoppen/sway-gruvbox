@@ -1,6 +1,7 @@
 # Read `man 5 sway` for a complete reference.
-exec --no-startup-id systemctl --user import-environment SWAYSOCK
-exec --no-startup-id dbus-update-activation-environment --systemd SWAYSOCK
+#exec --no-startup-id systemctl --user import-environment SWAYSOCK
+#exec --no-startup-id dbus-update-activation-environment --systemd SWAYSOCK
+
 
 ### Window styles
 gaps inner 4
@@ -9,14 +10,15 @@ gaps outer 0
 default_border pixel 2
 default_floating_border pixel 2
 
-# Decorations
-set $color-high         #d65d0e
-set $color-medium       #d79921
-set $color-low          #d5c4a1
-set $color-back         #3c3836
-set $color-text         #bdae93
-set $color-alert        #cc241d
-
+# Window borders
+set {
+    $color-high         #d65d0e
+    $color-medium       #d79921
+    $color-low          #d5c4a1
+    $color-back         #3c3836
+    $color-text         #bdae93
+    $color-alert        #cc241d
+}
 # WINDOW CLASS                  BORDER          BACKGROUND      TEXT            INDICATOR       CHILD BORDER
 client.focused                  $color-high     $color-back     $color-text     $color-low      $color-high
 client.focused_inactive         $color-medium   $color-back     $color-text     $color-low      $color-medium
@@ -28,10 +30,12 @@ client.urgent                   $color-alert    $color-back     $color-text     
 # Use Mod1 for Alt as modifier.
 set $mod Mod1
 
-set $left   j
-set $down   k
-set $up     i
-set $right  l
+set {
+    $left   j
+    $down   k
+    $up     i
+    $right  l
+}
 
 # Terminal emulator
 set $term alacritty
@@ -91,53 +95,62 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 
 # Manage windows
-bindsym $mod+$left focus left
-bindsym $mod+$down focus down
-bindsym $mod+$up focus up
-bindsym $mod+$right focus right
+bindsym {
+    $mod+$left  focus left
+    $mod+$down  focus down
+    $mod+$up    focus up
+    $mod+$right focus right
 
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+    $mod+Left   focus left
+    $mod+Down   focus down
+    $mod+Up     focus up
+    $mod+Right  focus right
 
-bindsym $mod+Shift+$left move left
-bindsym $mod+Shift+$down move down
-bindsym $mod+Shift+$up move up
-bindsym $mod+Shift+$right move right
+    $mod+Shift+$left    move left
+    $mod+Shift+$down    move down
+    $mod+Shift+$up      move up
+    $mod+Shift+$right   move right
 
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+    $mod+Shift+Left     move left
+    $mod+Shift+Down     move down
+    $mod+Shift+Up       move up
+    $mod+Shift+Right    move right
 
-bindsym $mod+Shift+1 move container to workspace number 1
-bindsym $mod+Shift+2 move container to workspace number 2
-bindsym $mod+Shift+3 move container to workspace number 3
-bindsym $mod+Shift+4 move container to workspace number 4
+    $mod+Shift+1 move container to workspace number 1
+    $mod+Shift+2 move container to workspace number 2
+    $mod+Shift+3 move container to workspace number 3
+    $mod+Shift+4 move container to workspace number 4
+}
 
 # Workspaces:
+bindsym {
+    $mod+1 workspace number 1
+    $mod+2 workspace number 2
+    $mod+3 workspace number 3
+    $mod+4 workspace number 4
+}
 
-bindsym $mod+1 workspace number 1
-bindsym $mod+2 workspace number 2
-bindsym $mod+3 workspace number 3
-bindsym $mod+4 workspace number 4
+# Layout:
+bindsym {
+    # Split along axis
+    $mod+h splith
+    $mod+v splitv
 
-### Layout:
-# Split along axis
-bindsym $mod+h splith
-bindsym $mod+v splitv
+    # Switch between layout styles
+    $mod+s layout stacking
+    $mod+w layout tabbed
+    $mod+e layout toggle split
 
-# Switch between layout styles
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+    # Fullscreen
+    $mod+f fullscreen
 
-# Fullscreen
-bindsym $mod+f fullscreen
+    # Toggle tiling/floating
+    $mod+Shift+space floating toggle
 
-# Toggle tiling/floating
-bindsym $mod+Shift+space floating toggle
+    # Scratchpad:
+    $mod+Shift+minus move scratchpad
+    $mod+minus scratchpad show
+}
 
 # Swap focus between the tiling area and the floating area
 bindsym $mod+space focus mode_toggle
@@ -145,11 +158,9 @@ bindsym $mod+space focus mode_toggle
 # Move focus to the parent container
 bindsym $mod+a focus parent
 
-# Scratchpad:
-bindsym $mod+Shift+minus move scratchpad
-bindsym $mod+minus scratchpad show
-
 # Resizing
+bindsym $mod+r mode "resize"
+
 mode "resize" {
     # Custom directional keys
     bindsym $left resize shrink width 10px
@@ -167,15 +178,15 @@ mode "resize" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-bindsym $mod+r mode "resize"
 
-### Print screen
-bindsym Print                   exec grim && grim - | wl-copy --type image/png
-bindsym $mod+Print              exec grim -g "$(slurp -w 0 -d)" - | wl-copy --type image/png
-bindsym $mod+Shift+Print        exec grim -g "$(slurp -w 0 -d)" - | swappy -f -
+# Print screen
+bindsym {
+    Print              exec grim && grim - | wl-copy --type image/png
+    $mod+Print          exec grim -g "$(slurp -w 0 -d)" - | wl-copy --type image/png
+    $mod+Shift+Print    exec grim -g "$(slurp -w 0 -d)" - | swappy -f -
+}
 
-
-### Status Bar:
+# Status Bar:
 bar {
 	swaybar_command waybar
 }
