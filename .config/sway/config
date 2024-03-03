@@ -1,7 +1,7 @@
 # Read `man 5 sway` for a complete reference.
 #exec --no-startup-id systemctl --user import-environment SWAYSOCK
 #exec --no-startup-id dbus-update-activation-environment --systemd SWAYSOCK
-
+exec_always brillo -S $(cat $HOME/.config/sway/brightness/value)
 
 # Variables
 set {
@@ -32,8 +32,8 @@ output * bg /home/eddo/Documents/Wallpapers/lotus-wallpaper.png fill
 # To avoid having  multiple swayidle sessions running in the background,
 # don't forget to reset to 'exec' after testing is done.
 exec swayidle -w \
-    timeout 30 "brillo -O && brillo -u 1000000 -q -S 15" \
-	resume "brillo -I" \
+    timeout 30 "brillo -O && brillo -G > $HOME/.config/sway/brightness/value && brillo -u 1000000 -q -S 15" \
+	resume "brillo -S $(cat $HOME/.config/sway/brightness/value)" \
     timeout 120 "swaymsg 'output * dpms off'" \
 	resume "swaymsg 'output * dpms on'"
 
@@ -53,8 +53,9 @@ input "1:1:AT_Translated_Set_2_keyboard" {
 # Change 'normal' to 'inverse' to switch right and left mouse button.
 floating_modifier $mod normal
 
+# Including bindings and window management:
 include {
-    ~/.config/sway/files/*
+    ~/.config/sway/config.d/*
 }
 
 # Status Bar:
