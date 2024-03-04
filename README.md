@@ -19,7 +19,7 @@ When at < 20%, the icon turns red:
 ![Red battery icon](https://i.imgur.com/CQU0wgK.png)
 
 When at < 10%, the icon starts flashing:  
-![Flashing red and black battery icon](https://i.imgur.com/oa5M1lF.gif)
+![Flashing red and black battery icon](https://i.imgur.com/ijIVbK8.gif)
 
 When charging, the battery gets a tiny flash icon and the field gets a green gradient:  
 ![Green gradient in the battery field, with charging icon](https://i.imgur.com/rh8uKUY.png)
