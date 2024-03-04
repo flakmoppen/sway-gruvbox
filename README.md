@@ -18,7 +18,7 @@ When unplugging the battery cable, the battery field gets a red gradient:
 When at < 20%, the icon turns red:  
 ![Red battery icon](https://i.imgur.com/CQU0wgK.png)
 
-When at < 10%, the icon starts flashing:  
+When at < 10%, the icon starts blinking:  
 ![Flashing red and black battery icon](https://i.imgur.com/ijIVbK8.gif)
 
 When charging, the battery gets a tiny flash icon and the field gets a green gradient:  
