@@ -11,7 +11,7 @@ Even though I'm using Gruvbox's light color palette right now, I also added its 
 I found it cumbersome to get Font Awesome to easily adhere to the formatting I was going for, so I'm using Nerd Font Symbols Mono instead.
 *For example: The battery icon set is* nf-md-battery *on [Nerd Font glyph search](https://www.nerdfonts.com/cheat-sheet).*
 
-**Combined**  
+**Icons + CSS examples**  
 When unplugging the battery cable, the battery field gets a red gradient:  
 ![Red gradient in the battery field.](https://i.imgur.com/MCd0xxK.png)
 
