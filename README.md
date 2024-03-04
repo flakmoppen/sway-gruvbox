@@ -8,8 +8,8 @@ Made for a laptop that was old when this world was young.
 Even though I'm using Gruvbox's light color palette right now, I also added its dark palette in waybars *styles.css*, in case I would feel like switching it up tomorrow.
 
 **Icons**  
-I found it cumbersome to get Font Awesome to easily adhere to the formatting I was going for, so I'm using Nerd Font Symbols Mono instead.  
-For example: The battery icon set is *nf-md-battery* on [Nerd Font glyph search](https://www.nerdfonts.com/cheat-sheet).
+I found it cumbersome to fit Font Awesome into the formatting I was going for, so I'm using Nerd Font Symbols Mono instead.  
+*(For example: The battery icon set is 'nf-md-battery' on [Nerd Font glyph search](https://www.nerdfonts.com/cheat-sheet).*
 
 **Icons + CSS examples**  
 When unplugging the battery cable, the battery field gets a red gradient:  
