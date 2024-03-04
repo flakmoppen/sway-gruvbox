@@ -5,4 +5,6 @@ Dotfiles for a minimalistic Gruvbox themed sway with waybar.
 
 Battery \udb80\udc79
 ![img](https://i.imgur.com/s7naYgP.png)
+![img](https://i.imgur.com/s7naYgP.png)
 ![](https://i.imgur.com/8pXJvjP.png)
+
