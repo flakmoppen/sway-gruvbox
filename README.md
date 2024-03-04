@@ -1,5 +1,6 @@
 # Dotfiles
-Dotfiles for a minimalistic Grubbox themed sway with waybar.
+Dotfiles for a minimalistic Gruvbox themed sway with waybar.
 
-![Green gradient in the battery module.](https://i.imgur.com/8pXJvjP.png)
+![Red gradient in the battery field.](https://i.imgur.com/8pXJvjP.png)
 Battery \udb80\udc79
+![img](https://i.imgur.com/s7naYgP.png)
