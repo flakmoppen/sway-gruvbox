@@ -11,7 +11,7 @@ exec {
     #--no-startup-id dbus-update-activation-environment --systemd SWAYSOCK
 
     # Set brightness on start
-    $HOME/.config/sway/backlight/value.start.sh
+    [ -f $HOME/.config/sway/backlight/value ] && brillo -S $( cat $HOME/.config/sway/backlight/value ) || brillo -S 90
 
     # Idle configuration
     swayidle -w \
@@ -47,8 +47,9 @@ set {
 
 # Periferals
 input "1:1:AT_Translated_Set_2_keyboard" {
-	xkb_layout "se"
-	xkb_numlock enabled
+    xkb_layout "se"
+    xkb_capslock disabled
+    xkb_numlock enabled
 }
 
 
