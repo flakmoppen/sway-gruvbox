@@ -86,7 +86,7 @@
 @keyframes blink {
     to {
 /*	background-color: @alert; */
-        color: @text-alert;
+        color: @alert;
     }
 }
 
@@ -112,11 +112,9 @@
 /* Warning */
 #pulseaudio.muted,
 #network.disconnected,
-#battery.below20.discharging,
-#battery.below10.discharging {
-    color: @warning;
+#battery.below20.discharging {
+    color: @text-alert;
 }
-
 
 /* Critical */
 #mode,
@@ -127,7 +125,6 @@
     animation-iteration-count: infinite;
     animation-direction: alternate;
 }
-
 
 
 

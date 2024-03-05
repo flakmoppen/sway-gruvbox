@@ -27,7 +27,7 @@ client.urgent                   $color-alert    $color-back     $color-text     
 # Behavior
 for_window [class=".*"] {
         inhibit_idle fullscreen
-        opacity set 0.8
+        opacity set 0.9
 }
 #for_window [app_id=".*"] ...
 

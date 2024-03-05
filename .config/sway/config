@@ -1,7 +1,26 @@
 # Read `man 5 sway` for a complete reference.
-#exec --no-startup-id systemctl --user import-environment SWAYSOCK
-#exec --no-startup-id dbus-update-activation-environment --systemd SWAYSOCK
-exec_always brillo -S $(cat $HOME/.config/sway/brightness/value)
+
+# To reload any running process executed by sway, use: killall <process name>,
+# set 'exec' to 'exec_always' below, and reload sway.
+# To avoid having multiple sessions of the same process running in the background,
+# don't forget to reset to 'exec' after testing is done.
+
+# Run
+exec {
+    #--no-startup-id systemctl --user import-environment SWAYSOCK
+    #--no-startup-id dbus-update-activation-environment --systemd SWAYSOCK
+
+    # Set brightness on start
+    $HOME/.config/sway/backlight/value.start.sh
+
+    # Idle configuration
+    swayidle -w \
+        timeout 30 "brillo -G > $HOME/.config/sway/backlight/value && brillo -u 1000000 -q -S 15" \
+	    resume "brillo -S $(cat $HOME/.config/sway/backlight/value)" \
+        timeout 120 "swaymsg 'output * dpms off'" \
+	    resume "swaymsg 'output * dpms on'"
+}
+
 
 # Variables
 set {
@@ -19,33 +38,28 @@ set {
     $term       alacritty
     $browser    floorp
     $editor     placeholder
+
+    # Displays
+    $laptop     eDP-1
+    $hdmi       #placeholder#
+}
+
+
+# Periferals
+input "1:1:AT_Translated_Set_2_keyboard" {
+	xkb_layout "se"
+	xkb_numlock enabled
 }
 
 
 # Wallpaper
-output * bg /home/eddo/Documents/Wallpapers/lotus-wallpaper.png fill
-
-
-# Idle configuration
-# To reload swayidle use: killall swayidle
-# and set 'exec' to 'exec_always' below.
-# To avoid having  multiple swayidle sessions running in the background,
-# don't forget to reset to 'exec' after testing is done.
-exec swayidle -w \
-    timeout 30 "brillo -O && brillo -G > $HOME/.config/sway/brightness/value && brillo -u 1000000 -q -S 15" \
-	resume "brillo -S $(cat $HOME/.config/sway/brightness/value)" \
-    timeout 120 "swaymsg 'output * dpms off'" \
-	resume "swaymsg 'output * dpms on'"
-
-
-### Input configuration
-# You can get the names of your inputs by running: swaymsg -t get_inputs
-# If you get a "Unable to retrieve socket path" error. Run:
-# export SWAYSOCK=/run/user/$(id -u)/sway-ipc.$(id -u).$(pgrep -x sway).sock
-# Read `man 5 sway-input` for more information about this section.
-input "1:1:AT_Translated_Set_2_keyboard" {
-	xkb_layout "se"
-	xkb_numlock enabled
+output {
+    $laptop     bg /home/eddo/Documents/Wallpapers/lotus-wallpaper.png fill
+    $laptop     scale 1.0
+    $laptop     pos 0 0 res 1366x768@60Hz
+#    $hdmi       bg /home/eddo/Documents/Wallpapers/lotus-wallpaper.png fill
+#    $hdmi       scale 1.5
+#    $hdmi       pos 
 }
 
 

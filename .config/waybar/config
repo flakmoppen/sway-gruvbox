@@ -119,7 +119,23 @@
 
     "backlight": {
         "format": "{icon}",
-        "format-icons": ["", "", "", "", "", "", "", "", "", ""],
+        "format-icons": [
+//            "", // nf-weather-moon_new
+//            "", // nf-weather-moon_alt_waxing_gibbous_6
+            "", // ..
+            "",
+            "",
+//            "",
+            "", // nf-weather-moon_alt_waxing_gibbous_1
+            "", // nf-weather-moon_alt_first_quarter
+            "", // nf-weather-moon_alt_waxing_crescent_6
+//            "", // ..
+            "",
+            "",
+//            "",
+            "", // nf-weather-moon_alt_waxing_crescent_1
+            ""  // nf-weather-moon_full
+        ],
 	"tooltip-format": "{percent}%",
     },
 
@@ -146,7 +162,7 @@
 
     "battery": {
         "format-full": "󰁹",
-	"tooltip-format-full": "",
+	"tooltip-format-full": "Full",
 
         "format-icons": [
 	    "󰂎",
