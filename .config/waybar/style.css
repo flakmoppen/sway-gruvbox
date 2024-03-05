@@ -29,7 +29,8 @@
 @define-color fg1		@fg;
 @define-color fg0		#fbf1c7;
 @define-color orange1		#d65d0e;
-@define-color orange2		#af3a03;*/
+@define-color orange2		#af3a03;
+*/
 
 /*	GRUVBOX LIGHT PALETTE		*/
 @define-color bg		#fbf1c7;
@@ -83,10 +84,20 @@
 @define-color audio		@bg3;
 @define-color battery		@bg2;
 
-@keyframes blink {
+@keyframes text-blink {
     to {
-/*	background-color: @alert; */
+        color: @text-alert;
+    }
+}
+
+@keyframes gradient-blink {
+    from {
         color: @alert;
+        background: linear-gradient(to right, @battery 100%, @alert);
+    }
+    to {
+        color: @text-alert;
+        background: linear-gradient(to right, @battery 15%, @alert);
     }
 }
 
@@ -109,6 +120,15 @@
 }
 
 /*	 State changes		*/
+/* Attention */
+#mode {
+    animation-name: text-blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
 /* Warning */
 #pulseaudio.muted,
 #network.disconnected,
@@ -117,10 +137,9 @@
 }
 
 /* Critical */
-#mode,
 #battery.below10.discharging {
-    animation-name: blink;
-    animation-duration: 0.5s;
+    animation-name: gradient-blink;
+    animation-duration: .75s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     animation-direction: alternate;
@@ -199,16 +218,14 @@
 }
 
 #tray {
-    background-color: #2980b9;
+    background-color: @bg;
 }
 #tray > .passive {
     -gtk-icon-effect: dim;
 }
 #tray > .needs-attention {
     -gtk-icon-effect: highlight;
-    background-color: #eb4d4b;
 }
-
 
 #backlight {
     background-color: @backlight;
