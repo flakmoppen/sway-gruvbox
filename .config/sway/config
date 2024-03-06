@@ -15,9 +15,9 @@ exec {
 
     # Idle configuration
     swayidle -w \
-        timeout 30 "brillo -G > $HOME/.config/sway/backlight/value && brillo -u 1000000 -q -S 15" \
-	    resume "brillo -S $(cat $HOME/.config/sway/backlight/value)" \
-        timeout 120 "swaymsg 'output * dpms off'" \
+        timeout 60 "brillo -G > $HOME/.config/sway/backlight/value && brillo -u 1000000 -q -S 15" \
+	    resume 'brillo -S "$(cat $HOME/.config/sway/backlight/value)"' \
+        timeout 300 "swaymsg 'output * dpms off'" \
 	    resume "swaymsg 'output * dpms on'"
 }
 
@@ -52,13 +52,24 @@ input "1:1:AT_Translated_Set_2_keyboard" {
     xkb_numlock enabled
 }
 
+input type:touchpad {
+    click_method     button_areas
+    click_method     clickfinger
+    drag             enabled
+    dwt              enabled
+    middle_emulation enabled
+    scroll_method    two_finger
+    scroll_factor    1
+    tap              enabled
+}
+
 
 # Wallpaper
 output {
-    $laptop     bg /home/eddo/Documents/Wallpapers/lotus-wallpaper.png fill
+    $laptop     bg $HOME/Documents/Wallpapers/10_ox-herder_pictures.png fill
     $laptop     scale 1.0
     $laptop     pos 0 0 res 1366x768@60Hz
-#    $hdmi       bg /home/eddo/Documents/Wallpapers/lotus-wallpaper.png fill
+#    $hdmi       bg $HOME/Documents/Wallpapers/lotus-wallpaper.png fill
 #    $hdmi       scale 1.5
 #    $hdmi       pos 
 }
@@ -75,5 +86,5 @@ include {
 
 # Status Bar:
 bar {
-	swaybar_command waybar
+    swaybar_command waybar
 }

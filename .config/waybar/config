@@ -66,7 +66,7 @@
 
     "sway/window": {
         "format": {},
-        "max-length": 35,
+        "max-length": 45,
         "tooltip": false,
     },
 
@@ -130,8 +130,7 @@
         "format-wifi": "{icon}",
         "format-ethernet": "󰈀",
         "format-disabled": "Disabled ⚠",
-        "format-disconnected": "Disconnected ⚠",
-        "format-alt": "{ipaddr}/{cidr}",
+        "format-disconnected": "󰤮",
         "tooltip-format": "{ipaddr}",
         "tooltip-format-wifi": "{ipaddr} via {essid} ({signalStrength}%)",
         "tooltip-format-ethernet": "{ipaddr}/{cidr}",
