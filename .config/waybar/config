@@ -68,6 +68,9 @@
         "format": {},
         "max-length": 45,
         "tooltip": false,
+        "rewrite": {
+            "(.*) - Ablaze Floorp": "$1",
+        }
     },
 
 
