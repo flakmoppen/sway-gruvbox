@@ -119,6 +119,10 @@
     icon-shadow: none;
 }
 
+widget > label {
+    padding: 0 .5em;
+}
+
 /*	 State changes		*/
 /* Attention */
 #mode {
@@ -149,20 +153,16 @@
 
 /*	LEFT MODULES
 	------------		*/
-
-#workspaces button {
-    background: @workspaces;
-}
 #workspaces button label {
     background: @workspaces;
     padding: 0 .5em;
 }
 #workspaces button:hover label {
-    transition: background .5s;
+    transition: background-color .5s;
     background: radial-gradient( @workspaces-hover, @workspaces 60%);
 }
 #workspaces button.urgent {
-    transition: background .5s;
+    transition: background-color .5s;
     background: radial-gradient( @alert, @workspaces 80%);
     transition: color .5s;
     color: @text-alert;
@@ -171,9 +171,10 @@
 #mode {
     font-style: italic;
     font-weight: bold;
+    padding: 0;
+    margin: 0 .5em;
     color: transparent;
     background-color: @waybar;
-    padding-left: 0em;
     box-shadow:
 	0 .2em @alert inset,
 	0 -.2em @alert inset;
@@ -195,27 +196,17 @@
 }
 #clock.day {
     background-color: @day;
-    padding-left: .5em;
 }
 #clock.time {
     background-color: @time;
-    padding: 0 .5em;
 }
 #clock.date {
     background-color: @day;
-    padding-right: .5em;
 }
 
 
 /*	RIGHT MODULES
 	-------------		*/
-
-#backlight,
-#network,
-#pulseaudio,
-#battery {
-    padding-left: .5em;
-}
 
 #tray {
     background-color: @bg;
@@ -255,15 +246,10 @@
 	------			*/
 #custom-arrow-right,
 #custom-arrow-left {
+    padding: 0;
+    font-family: Hack Nerd Font Mono;
     font-size: 20;
 }
-
-/* #custom-arrow-right {
-    margin-left: 1px;
-}
-#custom-arrow-left {
-    margin-right: 1px;
-} */
 
 #custom-arrow-right.workspaces {
     color: @workspaces;
