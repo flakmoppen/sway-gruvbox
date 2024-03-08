@@ -43,6 +43,12 @@ bindsym {
     $mod+Shift+2 move container to workspace number 2
     $mod+Shift+3 move container to workspace number 3
     $mod+Shift+4 move container to workspace number 4
+
+    # Move window and keep focus
+    $mod+Control+Shift+1 [con_id=__focused__] move to workspace 1, focus
+    $mod+Control+Shift+2 [con_id=__focused__] move to workspace 2, focus
+    $mod+Control+Shift+3 [con_id=__focused__] move to workspace 3, focus
+    $mod+Control+Shift+4 [con_id=__focused__] move to workspace 4, focus
 }
 
 # Workspaces:

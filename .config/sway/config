@@ -11,14 +11,14 @@ exec {
     #--no-startup-id dbus-update-activation-environment --systemd SWAYSOCK
 
     # Set brightness on start
-    [ -f $HOME/.config/sway/backlight/value ] && brillo -S $( cat $HOME/.config/sway/backlight/value ) || brillo -S 90
+    $HOME/.config/scripts/sway/backlight-value.set.sh
 
     # Idle configuration
     swayidle -w \
-        timeout 60 "brillo -G > $HOME/.config/sway/backlight/value && brillo -u 1000000 -q -S 15" \
-	    resume 'brillo -S "$(cat $HOME/.config/sway/backlight/value)"' \
+        timeout 60 "brillo -G > $HOME/.config/scripts/sway/backlight-value && brillo -u 1000000 -q -S 15" \
+            resume 'brillo -S "$($HOME/.config/scripts/sway/backlight-value.set.sh)"' \
         timeout 300 "swaymsg 'output * dpms off'" \
-	    resume "swaymsg 'output * dpms on'"
+            resume "swaymsg 'output * dpms on'"
 }
 
 
