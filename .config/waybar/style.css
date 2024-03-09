@@ -1,4 +1,5 @@
-/*	GRUVBOX DARK PALETTE		
+/*	GRUVBOX DARK PALETTE
+	--------------------		
 @define-color bg		#282828;
 @define-color gray1		#928374;
 @define-color red1		#cc241d;
@@ -32,7 +33,8 @@
 @define-color orange2		#af3a03;
 */
 
-/*	GRUVBOX LIGHT PALETTE		*/
+/*	GRUVBOX LIGHT PALETTE
+	---------------------		*/
 @define-color bg		#fbf1c7;
 @define-color gray1		#928374;
 @define-color red1		#cc241d;
@@ -66,7 +68,8 @@
 @define-color orange2		#af3a03;
 
 
-/*	COLOR BINDS			*/
+/*	COLOR BINDS
+	-----------			*/
 @define-color waybar		@bg;
 @define-color text-main		@fg;
 @define-color text-opposite	@bg;
@@ -84,23 +87,9 @@
 @define-color audio		@bg3;
 @define-color battery		@bg2;
 
-@keyframes text-blink {
-    to {
-        color: @text-alert;
-    }
-}
 
-@keyframes gradient-blink {
-    from {
-        color: @alert;
-        background: linear-gradient(to right, @battery 100%, @alert);
-    }
-    to {
-        color: @text-alert;
-        background: linear-gradient(to right, @battery 15%, @alert);
-    }
-}
-
+/*      ELEMENT SETTINGS
+	----------------	*/
 .modules-left > widget:first-child > #workspaces {margin: 0}
 .modules-right > widget:last-child > #workspaces {margin: 0}
 
@@ -119,24 +108,50 @@
     icon-shadow: none;
 }
 
-widget > label {
-    padding: 0 0.5em;
+workspaces button label,
+#window,
+widget label,
+#tray {
+    padding: 0 .5em;
 }
 
-/*	 State changes		*/
+
+/*	ANIMATION		
+	---------		*/
+@keyframes text-blink {
+    to {
+        color: @text-alert;
+    }
+}
+
+@keyframes gradient-blink {
+    from {
+        color: @text-alert;
+        background: linear-gradient(to right, @battery 100%, @alert);
+    }
+    to {
+        color: @text-opposite;
+        background: linear-gradient(to right, @battery 15%, @alert);
+    }
+}
+
 /* Attention */
-#mode {
+#mode,
+#battery.below20.discharging {
     animation-name: text-blink;
     animation-duration: 0.5s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     animation-direction: alternate;
 }
+#battery.below20.discharging {
+    color: transparent
+}
 
 /* Warning */
 #pulseaudio.muted,
-#network.disconnected,
-#battery.below20.discharging {
+#network.disconnected/*,
+#battery.below20.discharging*/ {
     color: @text-alert;
 }
 
@@ -150,12 +165,10 @@ widget > label {
 }
 
 
-
 /*	LEFT MODULES
 	------------		*/
 #workspaces button label {
     background: @workspaces;
-    padding: 0 .5em;
 }
 #workspaces button:hover label {
     transition: background-color .5s;
@@ -180,21 +193,9 @@ widget > label {
 	0 -.2em @alert inset;
 }
 
-#window {
-    padding: 0 .5em;
-}
-
 
 /*	CENTER MODULES
 	--------------		*/
-
-#scratchpad {
-    color: @text-main;
-}
-#scratchpad.empty {
-    background-color: transparent;
-}
-
 #clock {
     color: @text-opposite;
 }

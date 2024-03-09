@@ -30,6 +30,8 @@
         "battery",
     ],
 
+    "fixed-center": true,
+
 
 //      MODULES CONFIGURATION
 //      ---------------------
