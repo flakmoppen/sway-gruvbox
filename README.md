@@ -32,7 +32,7 @@ When at < 10%, both icon and its field starts blinking:
 - 'Hack Nerd Font Mono', optional default font  *(sway/config and waybar/styles.css)*
 
 **Font size:**
-- Waybar: Change font size in `* { ... }` and everything else should align to that size. *(waybar/styles.css)*
+- Waybar: Change font size inside `* { ... }` and everything else should align to that size. *(waybar/styles.css)*
 
 **Workspaces:**  
 Default only uses 4 workspaces. You'll want to change two files to reflect the amount of workspaces you want to use acordingly.
