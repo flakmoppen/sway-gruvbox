@@ -27,14 +27,14 @@ When charging, the battery gets a tiny flash icon and the field gets a green gra
 ![Green gradient in the battery field, with charging icon](https://i.imgur.com/rh8uKUY.png)
 
 # Tailoring
-Font family:
+**Font family:**
 - 'Symbols Nerd Font Mono', required for glyphs  *(waybar/styles.css)*
 - 'Hack Nerd Font Mono', optional default font  *(sway/config and waybar/styles.css)*
 
-Font size:
+**Font size:**
 - Waybar: Change size in \* { ... } and everything else should align around that size. *(waybar/styles.css)*
 
-Workspaces:  
+**Workspaces:**  
 Default only uses 4 workspaces. You'll want to change two files to reflect the amount of workspaces you want to use acordingly.
 - sway/config.d/key-binds
 - scripts/sway/next.prev.sh
