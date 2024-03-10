@@ -96,9 +96,12 @@ bindsym $mod+r mode "resize"
 # Recordings
 bindsym {
     # Screenshots
-    Print               exec grim && grim - | wl-copy --type image/png
-    $mod+Print          exec grim -g "$(slurp -w 0 -d)" - | wl-copy --type image/png
-    $mod+Shift+Print    exec grim -g "$(slurp -w 0 -d)" - | swappy -f -
+    print exec grim && grim - | wl-copy
+    $mod+print exec grim -g "$(slurp -w 0 -d)" - | wl-copy
+    $mod+shift+print exec slurp -w 0 -d | grim -g - - | swappy -f -
+}
 
+bindsym {
     # Screen recording
+    $mod+Control+Shift+Print exec $HOME/.config/scripts/sway/screenrec.sh
 }

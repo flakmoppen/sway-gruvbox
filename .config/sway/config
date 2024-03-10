@@ -64,7 +64,7 @@ input type:touchpad {
 }
 
 
-# Wallpaper
+# Cosmetic
 output {
     $laptop     bg $HOME/Documents/Wallpapers/10_ox-herder_pictures.png fill
     $laptop     scale 1.0
@@ -74,6 +74,8 @@ output {
 #    $hdmi       pos 
 }
 
+font pango: Hack Nerd Font Mono 12
+
 
 # Key to use to manipulate floating windows.
 # Change 'normal' to 'inverse' to switch right and left mouse button.
@@ -81,7 +83,7 @@ floating_modifier $mod normal
 
 # Including bindings and window management:
 include {
-    ~/.config/sway/config.d/*
+    $HOME/.config/sway/config.d/*
 }
 
 # Status Bar:
