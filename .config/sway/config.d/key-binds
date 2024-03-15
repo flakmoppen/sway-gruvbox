@@ -49,6 +49,9 @@ bindsym {
     $mod+Control+Shift+2 [con_id=__focused__] move to workspace 2, focus
     $mod+Control+Shift+3 [con_id=__focused__] move to workspace 3, focus
     $mod+Control+Shift+4 [con_id=__focused__] move to workspace 4, focus
+
+    $mod+Control+j ~/.config/scripts/sway/next.prev.sh focus window prev
+    $mod+Control+l ~/.config/scripts/sway/next.prev.sh focus window next
 }
 
 # Workspaces:
@@ -103,5 +106,5 @@ bindsym {
 
 bindsym {
     # Screen recording
-    $mod+Control+Shift+Print exec $HOME/.config/scripts/sway/screenrec.sh
+    $mod+Control+Shift+Print exec ~/.config/scripts/sway/screenrec.sh
 }
