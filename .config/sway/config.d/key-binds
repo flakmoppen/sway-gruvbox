@@ -13,7 +13,7 @@ bindsym {
     $mod+Shift+c reload
 
     # Exit sway
-    $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+    #$mod+Shift+e exec
 }
 
 
@@ -87,8 +87,13 @@ bindsym $mod+space focus mode_toggle
 # Move focus to the parent container
 bindsym $mod+a focus parent
 
-# Resizing
-bindsym $mod+r mode "resize"
+# Mode
+bindsym {
+    $mod+r          mode "resize"
+    $mod+Shift+x    mode $power_mode
+    $mod+t          mode $layout_mode
+#    $mod+Shift+n    mode $notification_mode
+}
 
 # Recordings
 bindsym {

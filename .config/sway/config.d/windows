@@ -25,15 +25,28 @@ client.unfocused                $color-low      $color-back     $color-text     
 client.urgent                   $color-alert    $color-back     $color-text     $color-medium   $color-alert
 
 # Behavior
+set {
+    $popup floating enable, resize set width 75 ppt height 75 ppt
+}
+
 for_window [class=".*"] {
-        inhibit_idle fullscreen
-        opacity set 0.95
+    inhibit_idle fullscreen
+    opacity set 0.95
 }
 
 for_window [app_id=".*"] {
-        inhibit_idle fullscreen
-        opacity set 0.95
+    inhibit_idle fullscreen
+    opacity set 0.95
 }
 
-for_window [title="(?:Open|Save) (?:File|Folder|As)"] floating enable, resize set width 1030 height 710
-
+# Popup windows
+for_window {
+    [title="(?:Open|Save) (?:File|Folder|As)"] $popup
+    [window_role="pop-up"] $popup
+    [window_role="bubble"] $popup
+    [window_role="task_dialog"] $popup
+    [window_role="Preferences"] $popup
+    [window_type="dialog"] $popup
+    [window_type="menu"] $popup
+    [instance="floorp"] $popup
+}

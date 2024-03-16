@@ -17,6 +17,7 @@ exec {
     swayidle -w \
         timeout 60 "brillo -G > $HOME/.config/scripts/sway/backlight-value && brillo -u 1000000 -q -S 15" \
             resume 'brillo -S "$($HOME/.config/scripts/sway/backlight-value.set.sh)"' \
+            resume "swaymsg 'output * dpms on'" \
         timeout 300 "swaymsg 'output * dpms off'" \
             resume "swaymsg 'output * dpms on'"
 }
@@ -42,6 +43,11 @@ set {
     # Displays
     $laptop     eDP-1
     $hdmi       #placeholder#
+
+    # Modes
+    $power_mode         ":   (d) : 󰍁 (l) : 󰤄 (s) : 󰜉  (r) :  ⏻ (p) "
+#    $layout_mode        "Layout: (d) stacking|(t) tabbed|(s) split|(v) splitv|(h) splith"
+#    $notification_mode  "Notification: (s) Stop | (d) Default | (n) dismiss | (a) Action"
 }
 
 
@@ -77,7 +83,7 @@ output {
 font pango: Hack Nerd Font Mono 12
 
 
-# Key to use to manipulate floating windows.
+# Mouse key setting to manipulate floating windows.
 # Change 'normal' to 'inverse' to switch right and left mouse button.
 floating_modifier $mod normal
 

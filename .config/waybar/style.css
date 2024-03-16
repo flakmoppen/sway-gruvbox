@@ -196,6 +196,10 @@ widget label,
 
 /*	CENTER MODULES
 	--------------		*/
+#scratchpad.empty {
+    color: @waybar;
+}
+
 #clock {
     color: @text-opposite;
 }
@@ -207,6 +211,10 @@ widget label,
 }
 #clock.date {
     background-color: @day;
+}
+
+#scratchpad.invisible {
+    color: @waybar;
 }
 
 
