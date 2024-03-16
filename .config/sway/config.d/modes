@@ -1,0 +1,33 @@
+mode "resize" {
+  # Custom directional keys
+  bindsym {
+    $left resize shrink width 10px
+    $down resize grow height 10px
+    $up resize shrink height 10px
+    $right resize grow width 10px
+
+    # Arrow keys
+    Left resize shrink width 10px
+    Down resize grow height 10px
+    Up resize shrink height 10px
+    Right resize grow width 10px
+
+    # Return to default mode
+    Return mode "default"
+    Escape mode "default"
+  }
+}
+
+mode $power_mode {
+  bindsym --to-code {
+    d exec swaymsg output eDP-1 dpms off, mode "default"
+    l exec swaymsg exit
+    s exec systemctl suspend, mode "default"
+    r exec systemctl reboot
+    p exec systemctl poweroff
+
+    # Return to default mode
+    Return mode "default"
+    Escape mode "default"
+  }
+}
