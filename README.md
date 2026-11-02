@@ -14,7 +14,7 @@ I found it cumbersome to fit Font Awesome into the formatting I was going for, s
 *(For example: The battery icon set is 'nf-md-battery' on [Nerd Font glyph search](https://www.nerdfonts.com/cheat-sheet).*
 
 **Icons + CSS examples**  
-When charging, a flash is added to the battery icon and the field gets a green gradient:  
+When charging, a tiny flash is added next to the battery icon and the field gets a green gradient:  
 ![Green gradient in the battery field, with charging icon](https://i.imgur.com/6y6JUe8.png)
 
 When unplugging the battery cable, the battery field gets a red gradient:  
