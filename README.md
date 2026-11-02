@@ -2,7 +2,7 @@
 **Dotfiles for a minimalistic gruvbox themed sway with waybar.**  
 Made for a laptop that was old when this world was young.
 
-![Screenshot](https://i.imgur.com/bdVyMgl.png)
+![Screenshot](https://i.imgur.com/Lxhhr45.png)
 
 ## Stylings
 ### Waybar
